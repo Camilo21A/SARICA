@@ -1,0 +1,286 @@
+/* ── Tokens de color ────────────────────────────────────────────── */
+:root {
+    --sv-navy:        #084dad;
+    --sv-blue-dark:   #1e4d8c;
+    --sv-blue-mid:    #2563b0;
+    --sv-blue-light:  #d9e8f7;
+    --sv-blue-subtle: #eef4fb;
+    --sv-white:       #ffffff;
+    --sv-gray-muted:  #718096;
+    --sv-gray-border: #d1d9e6;
+    --sv-danger:      #c0392b;
+    --sv-radius-sm:   8px;
+    --sv-radius-lg:   20px;
+    --sv-font:        'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+
+/* ── Backdrop ───────────────────────────────────────────────────── */
+/* Cubre toda la pantalla y desenfoca el home de fondo             */
+.sv-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1050;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    background: rgba(10, 20, 50, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* JS agrega esta clase para mostrar el modal */
+.sv-backdrop.activo {
+    display: flex;
+}
+
+
+/* ── Tarjeta Glassmorphism ───────────────────────────────────────── */
+.sv-card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding-top: 56px;
+    border-radius: var(--sv-radius-lg);
+    overflow: visible;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+
+/* ── Avatar flotante ────────────────────────────────────────────── */
+.sv-avatar {
+    position: absolute;
+    top: -44px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background-color: var(--sv-navy);
+    border: 5px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 16px rgba(8, 77, 173, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.sv-avatar svg {
+    color: var(--sv-white);
+    width: 36px;
+    height: 36px;
+}
+
+
+/* ── Botón cerrar (X) ───────────────────────────────────────────── */
+.sv-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--sv-white);
+    transition: background 0.15s ease;
+    z-index: 11;
+}
+
+.sv-close-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ── Cuerpo del formulario ──────────────────────────────────────── */
+.sv-body {
+    padding: 0.5rem 2rem 0;
+    text-align: center;
+}
+
+/* Nombre del usuario */
+.sv-user-name {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--sv-white);
+    margin-bottom: 6px;
+    line-height: 1.2;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Badge de rol */
+.sv-role-badge {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--sv-blue-mid);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 0.5px solid var(--sv-blue-light);
+    padding: 3px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.1rem;
+}
+
+/* Mensaje de verificación */
+.sv-message {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.55;
+    margin-bottom: 1.4rem;
+}
+
+/* Separador */
+.sv-sep {
+    height: 0.5px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin: 0 -2rem 1.4rem;
+}
+
+
+/* ── Campo de contraseña ────────────────────────────────────────── */
+.sv-input-group {
+    position: relative;
+    margin-bottom: 0.65rem;
+}
+
+/* Ícono candado izquierdo */
+.sv-input-icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sv-gray-muted);
+    pointer-events: none;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+}
+
+/* Input */
+.sv-input {
+    width: 100%;
+    height: 46px;
+    padding: 0 46px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--sv-radius-sm);
+    font-size: 14px;
+    font-family: var(--sv-font);
+    color: #1a2a4a;
+    background-color: rgba(255, 255, 255, 0.75);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.sv-input::placeholder {
+    color: var(--sv-gray-muted);
+}
+
+.sv-input:focus {
+    border-color: var(--sv-blue-mid);
+    box-shadow: 0 0 0 3px rgba(37, 99, 176, 0.25);
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+/* Error en el input */
+.sv-input.is-error {
+    border-color: var(--sv-danger);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.2);
+}
+
+/* Botón ojo */
+.sv-toggle-pwd {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--sv-gray-muted);
+    padding: 0;
+    line-height: 1;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    transition: color 0.1s;
+}
+
+.sv-toggle-pwd:hover {
+    color: var(--sv-blue-mid);
+}
+
+/* Mensaje de error */
+.sv-error-msg {
+    font-size: 12px;
+    color: #ffb3b3;
+    text-align: left;
+    display: none;
+    margin-bottom: 0.6rem;
+}
+
+
+/* ── Pie institucional ──────────────────────────────────────────── */
+.sv-footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 0.7rem 1.5rem;
+}
+
+.sv-footer svg {
+    color: rgba(255, 255, 255, 0.6);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.sv-footer span {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+}
+
+
+/* ── Botón confirmar ────────────────────────────────────────────── */
+.sv-confirm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    width: 100%;
+    height: 54px;
+    background-color: var(--sv-navy);
+    color: var(--sv-white);
+    border: none;
+    border-radius: 0 0 var(--sv-radius-lg) var(--sv-radius-lg);
+    font-size: 13.5px;
+    font-weight: 700;
+    font-family: var(--sv-font);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.sv-confirm-btn:hover  { background-color: var(--sv-blue-dark); }
+.sv-confirm-btn:active { transform: scaleY(0.97); }
+
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .sv-body { padding: 0.5rem 1.25rem 0; }
+    .sv-sep  { margin-left: -1.25rem; margin-right: -1.25rem; }
+    .sv-card { margin: 0 0.5rem; }
+}

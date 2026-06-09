@@ -1,0 +1,160 @@
+:root {
+  --colorPrincipal: #1565C0;
+  --colorPrincipalClaro: #1976D2;
+  --colorPrincipalOscuro: #0d4fa0;
+  --colorAcento: #C62828;
+  --colorDorado: #D4A017;
+  --textoOscuro: #0d3b7a;
+  --textoMedio: #4a6fa5;
+  --fondoCampo: #f0f5fc;
+  --bordeCampo: #b8cde8;
+  --fondoPagina: #e8f0fb;
+}
+
+body {
+  background-color: var(--fondoPagina);
+  font-family: 'Source Sans 3', sans-serif;
+}
+
+/* ══════════════ TABLA ══════════════ */
+.tablaPrincipal {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #dce8f5;
+  box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+}
+
+.tablaPrincipal thead {
+  background: linear-gradient(90deg, var(--colorPrincipalOscuro), var(--colorPrincipal));
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tablaPrincipal thead th {
+  font-weight: 600;
+  padding: 13px 12px;
+  border: none;
+}
+
+.tablaPrincipal tbody tr {
+  border-bottom: 1px solid #dce8f5;
+  transition: background-color 0.15s;
+}
+
+.tablaPrincipal tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tablaPrincipal tbody tr:hover {
+  background-color: var(--fondoCampo);
+}
+
+.tablaPrincipal td {
+  font-size: 13px;
+  vertical-align: middle;
+  color: var(--textoOscuro);
+  padding: 11px 12px;
+}
+
+/* ══════════════ BADGES DE ESTADO ══════════════ */
+.badgeEstado {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badgeEstado.encendido {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.badgeEstado.apagado {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+.badgeEstado.danado {
+  background-color: #fee2e2;
+  color: var(--colorAcento);
+}
+
+.badgeEstado.bloqueado {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+/* ══════════════ BOTONES ══════════════ */
+.btnNuevo {
+  background-color: var(--colorPrincipal);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.btnNuevo:hover {
+  background-color: var(--colorPrincipalOscuro);
+  color: #fff;
+}
+
+.btnExportar {
+  background-color: var(--colorAcento);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.btnExportar:hover {
+  background-color: #9b1c1c;
+  color: #fff;
+}
+
+.btnPDF {
+  background-color: #fee2e2;
+  color: var(--colorAcento);
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  display: inline-block;
+}
+
+.btnPDF:hover {
+  background-color: var(--colorAcento);
+  color: #fff;
+}
+
+/* ══════════════ FILTROS ══════════════ */
+.campoFiltro {
+  background-color: var(--fondoCampo) !important;
+  border: 1.5px solid var(--bordeCampo) !important;
+  border-radius: 7px !important;
+  font-size: 13px !important;
+  color: var(--textoOscuro) !important;
+  font-family: 'Source Sans 3', sans-serif !important;
+}
+
+.campoFiltro:focus {
+  border-color: var(--colorPrincipal) !important;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1) !important;
+  background-color: #fff !important;
+}

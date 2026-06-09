@@ -1,0 +1,94 @@
+:root {
+  --colorPrincipal: #1565C0;
+  --colorPrincipalClaro: #1976D2;
+  --colorPrincipalOscuro: #0d4fa0;
+  --colorAcento: #C62828;
+  --colorDorado: #D4A017;
+  --textoOscuro: #0d3b7a;
+  --textoMedio: #4a6fa5;
+  --fondoCampo: #f0f5fc;
+  --bordeCampo: #b8cde8;
+  --fondoPagina: #e8f0fb;
+}
+
+/* ══════════════ HEADER ══════════════ */
+header {
+  background: linear-gradient(90deg, var(--colorPrincipalOscuro) 0%, var(--colorPrincipal) 60%, var(--colorPrincipalClaro) 100%);
+  box-shadow: 0 2px 12px rgba(13, 79, 160, 0.25);
+  z-index: 1030;
+}
+
+.barraDorada {
+  height: 4px;
+  background-color: var(--colorDorado);
+}
+
+.contenedorLogo {
+  width: 110px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.logoFiscalia {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nombreSistema {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: #fff;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.subtituloSistema {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+}
+
+/* Avatar y usuario */
+.avatarUsuario {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.nombreUsuario {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.rolUsuario {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.botonCerrarSesion {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s;
+  font-size: 14px;
+}
+
+.botonCerrarSesion:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+
+
+

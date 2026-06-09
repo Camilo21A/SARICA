@@ -1,0 +1,605 @@
+:root {
+    --colorPrincipal: #1565C0;
+    --colorPrincipalClaro: #1976D2;
+    --colorPrincipalOscuro: #0d4fa0;
+    --colorAcento: #C62828;
+    --colorDorado: #D4A017;
+    --textoOscuro: #0d3b7a;
+    --textoMedio: #4a6fa5;
+    --fondoCampo: #f0f5fc;
+    --bordeCampo: #b8cde8;
+    --fondoPagina: #e8f0fb;
+}
+
+/* ---------- Base ---------- */
+body {
+    background-color: var(--fondoPagina);
+    font-family: 'Source Sans 3', sans-serif;
+    padding-bottom: 0;
+    min-height: 100vh;
+}
+
+/* ══════════════ BREADCRUMB ══════════════ */
+.rutaNavegacion {
+    background-color: #fff;
+    border-bottom: 1px solid #dce8f5;
+}
+
+.enlaceInicio {
+    color: var(--colorPrincipal);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.enlaceInicio:hover {
+    text-decoration: underline;
+}
+
+.enlaceActiva {
+    color: var(--textoMedio);
+    font-size: 13px;
+}
+
+/* ══════════════ LAYOUT CON SIDEBAR ══════════════ */
+.contenedorPagina {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+/* ══════════════ SIDEBAR ══════════════ */
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, var(--colorPrincipalOscuro) 0%, var(--colorPrincipal) 100%);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: 2px 0 10px rgba(13, 79, 160, 0.15);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebarSeccionTitulo {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    padding: 16px 16px 6px;
+}
+
+.sidebarItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 13.5px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.sidebarItem:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebarItem.activo {
+    background: rgba(255, 255, 255, 0.13);
+    border-left-color: var(--colorDorado);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebarItem.activo svg {
+    stroke: var(--colorDorado);
+}
+
+.sidebarItem svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.sidebarDivider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 6px 14px;
+}
+
+.sidebarPie {
+    margin-top: auto;
+    padding: 12px 16px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.6;
+}
+
+/* ══════════════ CONTENIDO PRINCIPAL ══════════════ */
+.contenidoPrincipal {
+    flex: 1;
+    padding: 24px 28px 40px;
+    overflow-x: hidden;
+}
+
+/* Banner de bienvenida */
+.bannerBienvenida {
+    background: linear-gradient(90deg, var(--colorPrincipalOscuro) 0%, var(--colorPrincipal) 100%);
+    border-radius: 12px;
+    padding: 22px 26px;
+    color: #fff;
+    border-left: 5px solid var(--colorDorado);
+    position: relative;
+    overflow: hidden;
+}
+
+.bannerBienvenida::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+}
+
+.tituloBienvenida {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 3px;
+}
+
+.subtituloBienvenida {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.fechaBanner {
+    text-align: right;
+}
+
+.diaFecha {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.numeroDia {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--colorDorado);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.mesFecha {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Alerta institucional */
+.alertaInstitucional {
+    background-color: #fffbeb;
+    border: 1px solid #fcd34d;
+    border-left: 4px solid var(--colorDorado);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    color: #92400e;
+}
+
+.alertaInstitucional svg {
+    stroke: #d97706;
+    flex-shrink: 0;
+}
+
+/* Título de sección interna */
+.tituloSeccionInterna {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--textoOscuro);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid #dce8f5;
+    margin-bottom: 14px;
+}
+
+/* ══════════════ TARJETAS DE MÉTRICAS ══════════════ */
+.tarjetaMetrica {
+    background-color: #fff;
+    border: 1.5px solid #dce8f5;
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+}
+
+.iconoMetrica {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.iconoMetrica.azul {
+    background-color: #dbeafe;
+}
+
+.iconoMetrica.azul svg {
+    stroke: var(--colorPrincipal);
+}
+
+.iconoMetrica.verde {
+    background-color: #d1fae5;
+}
+
+.iconoMetrica.verde svg {
+    stroke: #059669;
+}
+
+.iconoMetrica.dorado {
+    background-color: #fef3c7;
+}
+
+.iconoMetrica.dorado svg {
+    stroke: #d97706;
+}
+
+.iconoMetrica.rojo {
+    background-color: #fee2e2;
+}
+
+.iconoMetrica.rojo svg {
+    stroke: var(--colorAcento);
+}
+
+.numeroMetrica {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--textoOscuro);
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.etiquetaMetrica {
+    font-size: 11.5px;
+    color: var(--textoMedio);
+}
+
+/* ══════════════ TARJETAS DE ACCESO RÁPIDO ══════════════ */
+.tarjetaAcceso {
+    background-color: #fff;
+    border: 1.5px solid #dce8f5;
+    border-radius: 12px;
+    padding: 20px 18px 16px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+    box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.tarjetaAcceso:hover {
+    box-shadow: 0 5px 16px rgba(21, 101, 192, 0.15);
+    transform: translateY(-2px);
+    border-color: var(--colorPrincipalClaro);
+    text-decoration: none;
+    color: inherit;
+}
+
+.iconoAcceso {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.iconoAcceso.azul {
+    background-color: #dbeafe;
+}
+
+.iconoAcceso.azul svg {
+    stroke: var(--colorPrincipal);
+}
+
+.iconoAcceso.verde {
+    background-color: #d1fae5;
+}
+
+.iconoAcceso.verde svg {
+    stroke: #059669;
+}
+
+.iconoAcceso.dorado {
+    background-color: #fef3c7;
+}
+
+.iconoAcceso.dorado svg {
+    stroke: #d97706;
+}
+
+.iconoAcceso.rojo {
+    background-color: #fee2e2;
+}
+
+.iconoAcceso.rojo svg {
+    stroke: var(--colorAcento);
+}
+
+.iconoAcceso.morado {
+    background-color: #ede9fe;
+}
+
+.iconoAcceso.morado svg {
+    stroke: #7c3aed;
+}
+
+.iconoAcceso.gris {
+    background-color: #f1f5f9;
+}
+
+.iconoAcceso.gris svg {
+    stroke: #475569;
+}
+
+.tituloAcceso {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--textoOscuro);
+    margin-bottom: 5px;
+}
+
+.descripcionAcceso {
+    font-size: 12px;
+    color: var(--textoMedio);
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.etiquetaAcceso {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    background-color: #dbeafe;
+    color: var(--colorPrincipal);
+}
+
+.etiquetaAcceso.verde {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.etiquetaAcceso.morado {
+    background-color: #ede9fe;
+    color: #7c3aed;
+}
+
+.etiquetaAcceso.dorado {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.etiquetaAcceso.rojo {
+    background-color: #fee2e2;
+    color: var(--colorAcento);
+}
+
+.etiquetaAcceso.gris {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+/* ══════════════ ACTIVIDAD / PENDIENTES ══════════════ */
+.tarjetaLista {
+    background-color: #fff;
+    border: 1.5px solid #dce8f5;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(26, 58, 107, 0.06);
+}
+
+.encabezadoLista {
+    background: linear-gradient(90deg, var(--colorPrincipalOscuro) 0%, var(--colorPrincipal) 100%);
+    padding: 11px 18px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.encabezadoLista.rojo {
+    background: linear-gradient(90deg, #9b1c1c 0%, var(--colorAcento) 100%);
+}
+
+.encabezadoLista svg {
+    stroke: rgba(255, 255, 255, 0.8);
+}
+
+.filaActividad {
+    display: flex;
+    align-items: center;
+    padding: 11px 18px;
+    border-bottom: 1px solid #dce8f5;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.filaActividad:last-child {
+    border-bottom: none;
+}
+
+.puntito {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.puntito.azul {
+    background-color: var(--colorPrincipalClaro);
+}
+
+.puntito.verde {
+    background-color: #10b981;
+}
+
+.puntito.dorado {
+    background-color: var(--colorDorado);
+}
+
+.puntito.rojo {
+    background-color: var(--colorAcento);
+}
+
+.textoActividad {
+    flex: 1;
+    color: #333;
+}
+
+.casoActividad {
+    font-size: 11px;
+    color: var(--colorPrincipal);
+    font-weight: 600;
+}
+
+.tiempoActividad {
+    font-size: 11px;
+    color: var(--textoMedio);
+    white-space: nowrap;
+}
+
+.tiempoActividad.urgente {
+    color: var(--colorAcento);
+    font-weight: 700;
+}
+
+/* ══════════════ RESPONSIVE — SIDEBAR MÓVIL (< 624px) ══════════════ */
+
+/* Barra azul debajo de la dorada, solo en móvil */
+.barraMobil {
+    display: none;
+    background-color: var(--colorPrincipal);
+    padding: 8px 16px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.barraMobilTitulo {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Botón hamburguesa */
+.botonHamburguesa {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: background 0.2s;
+}
+
+.botonHamburguesa:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.botonHamburguesa span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+/* Animación X al estar activo */
+.botonHamburguesa.activo span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.botonHamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.botonHamburguesa.activo span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Overlay oscuro detrás del sidebar */
+.sidebarOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.sidebarOverlay.visible {
+    display: block;
+    opacity: 1;
+}
+
+@media (max-width: 623px) {
+
+    /* Mostrar la barra con hamburguesa */
+    .barraMobil {
+        display: flex;
+    }
+
+    /* Ocultar sidebar por defecto */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 300;
+        transform: translateX(-100%);
+        transition: transform 0.28s ease;
+    }
+
+    /* Sidebar abierto */
+    .sidebar.abierto {
+        transform: translateX(0);
+    }
+
+    /* El contenido ocupa todo el ancho */
+    .contenidoPrincipal {
+        margin-left: 0;
+        padding: 16px 14px 40px;
+    }
+}
