@@ -10,9 +10,9 @@ include '../../model/conexion_db_Sarica.php';
 require_once '../../library/fpdf/fpdf.php';
 
 // ── Filtros ───────────────────────────────────────────────
-$id          = isset($_GET['id'])          ? intval($_GET['id'])   : 0;
-$filtroFecha = isset($_GET['fecha'])       ? $_GET['fecha']        : '';
-$filtroEstado = isset($_GET['estado'])     ? $_GET['estado']       : '';
+$id           = isset($_GET['id'])          ? intval($_GET['id'])  : 0;
+$filtroFecha  = isset($_GET['fecha'])       ? $_GET['fecha']       : '';
+$filtroEstado = isset($_GET['estado'])      ? $_GET['estado']      : '';
 $filtroDenunc = isset($_GET['denunciante']) ? $_GET['denunciante'] : '';
 
 // ── Where ─────────────────────────────────────────────────
@@ -122,6 +122,18 @@ class PDF extends FPDF
         $this->Cell(135, 6, $this->txt($valor), 0, 1, 'L', true);
     }
 
+    function FilaDatoLargo($etiqueta, $valor)
+    {
+        $this->SetFont('Arial', 'B', 8);
+        $this->SetFillColor(240, 245, 252);
+        $this->SetX(10);
+        $this->Cell(55, 6, $this->txt($etiqueta . ':'), 0, 0, 'L', true);
+        $this->SetFont('Arial', '', 8);
+        $this->SetFillColor(255, 255, 255);
+        $this->MultiCell(135, 6, $this->txt($valor), 0, 'L', true);
+        $this->SetXY(10, $this->GetY());
+    }
+
     function LineaDivisora()
     {
         $this->SetDrawColor(184, 205, 232);
@@ -144,11 +156,14 @@ if (mysqli_num_rows($query) === 0) {
 } else {
     while ($row = mysqli_fetch_assoc($query)) {
 
-        if ($pdf->GetY() > 230) {
+        // Salto de página si no cabe el registro completo
+        if ($pdf->GetY() > 150) {
             $pdf->AddPage();
+        } else {
+            $pdf->Ln(3);
         }
 
-        // Encabezado del registro
+        // ── Encabezado del registro ───────────────────────
         $pdf->SetFillColor(212, 160, 23);
         $pdf->SetTextColor(255, 255, 255);
         $pdf->SetFont('Arial', 'B', 9);
@@ -159,20 +174,20 @@ if (mysqli_num_rows($query) === 0) {
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Ln(2);
 
-        // Sección 1
+        // ── Sección 1: Denunciante ────────────────────────
         $pdf->TituloSeccion('1. Informacion del Denunciante');
         $pdf->FilaDato('Nombre',    $row['nombreDenunciante'] . ' ' . $row['apellidoDenunciante']);
         $pdf->FilaDato('Documento', $row['numeroDocumento']);
         $pdf->Ln(2);
 
-        // Sección 2
+        // ── Sección 2: Incautación ────────────────────────
         $pdf->TituloSeccion('2. Detalles de la Incautacion');
-        $pdf->FilaDato('Fecha',       date('d/m/Y', strtotime($row['fechaInicio'])));
-        $pdf->FilaDato('Lugar',       $row['direccionDomicilio']);
-        $pdf->FilaDato('Descripcion', $row['detalle']);
+        $pdf->FilaDato('Fecha',            date('d/m/Y', strtotime($row['fechaInicio'])));
+        $pdf->FilaDato('Lugar',            $row['direccionDomicilio']);
+        $pdf->FilaDatoLargo('Descripcion', $row['detalle']);
         $pdf->Ln(2);
 
-        // Sección 3
+        // ── Sección 3: Dispositivo ────────────────────────
         $pdf->TituloSeccion('3. Datos del Dispositivo');
         $pdf->FilaDato('Tipo',         $row['tipoDispoistivo']);
         $pdf->FilaDato('Marca/Modelo', $row['marca'] . ' ' . $row['modelo']);
@@ -180,7 +195,7 @@ if (mysqli_num_rows($query) === 0) {
         $pdf->FilaDato('Estado',       $row['estadoFuncional']);
         $pdf->Ln(2);
 
-        // Sección 4
+        // ── Sección 4: Custodia ───────────────────────────
         $pdf->TituloSeccion('4. Seguridad y Etiquetado');
         $pdf->FilaDato('Codigo Etiqueta', $row['codigoEtiqueta']);
         $pdf->FilaDato('Hash',            $row['codigoHast']);
@@ -189,7 +204,6 @@ if (mysqli_num_rows($query) === 0) {
         $pdf->Ln(4);
 
         $pdf->LineaDivisora();
-        $pdf->Ln(3);
     }
 }
 
