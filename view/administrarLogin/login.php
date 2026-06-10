@@ -32,7 +32,6 @@
           <span class="etiquetaRol">Fiscal</span>
           <span class="etiquetaRol">Policía Judicial</span>
           <span class="etiquetaRol">Custodio</span>
-          <span class="etiquetaRol">Funcionario</span>
           <span class="etiquetaRol">Administrador</span>
         </div>
         <div class="mt-auto pt-4 infoPie">
@@ -100,7 +99,6 @@
                 <option value="Fiscal">Fiscal</option>
                 <option value="Policia">Policía Judicial</option>
                 <option value="Custodio">Custodio</option>
-                <option value="Funcionario">Funcionario</option>
                 <option value="Administrador">Administrador</option>
               </select>
             </div>

@@ -46,6 +46,7 @@ $query = mysqli_query($conexionbd, "SELECT * FROM denunciante $where ORDER BY no
           </svg>
         </div>
         <div>
+          <a href="../administrarHome/home.php" class="btnVolverInicio mt-1">  VOLVER AL INICIO</a>
           <h1 class="tituloPagina mb-0">Gestión de Denunciantes</h1>
           <p class="subtituloPagina mb-0">Registra, consulta y administra los ciudadanos denunciantes</p>
         </div>

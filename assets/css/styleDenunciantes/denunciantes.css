@@ -1,3 +1,23 @@
+.btnNuevo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #1565C0;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.btnNuevo:hover {
+    background-color: #0d47a1;
+    color: #fff;
+}
 .btnEditar {
   background-color: #dbeafe;
   color: var(--colorPrincipal, #1565C0);
@@ -31,4 +51,22 @@
 .btnEliminar:hover {
   background-color: #C62828;
   color: #fff;
+}
+/* ── Botón volver al inicio ─────────────────────────────────────── */
+.btnVolverInicio {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1565C0;
+    text-decoration: none;
+    background-color: #dbeafe;
+    padding: 4px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btnVolverInicio:hover {
+    background-color: #1565C0;
+    color: #fff;
 }

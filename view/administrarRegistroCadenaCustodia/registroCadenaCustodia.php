@@ -32,13 +32,18 @@ $queryDenunciantes = mysqli_query($conexionbd, "SELECT idDenunciante, nombre, ap
   <main class="container-fluid px-3 px-lg-4 py-4">
 
     <!-- Título -->
+     <div class="botonSalir">
+          <a href="../administrarHome/home.php" class="btnVolverInicio mt-1">  VOLVER AL INICIO</a>
+      </div>
     <div class="d-flex align-items-center gap-3 mb-4">
       <div class="iconoTitulo d-flex align-items-center justify-content-center">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
           <path d="M12 2L3 7v5c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7L12 2z" />
         </svg>
       </div>
+      
       <div>
+        
         <h1 class="tituloPagina mb-0">Registro de Cadena de Custodia</h1>
         <p class="subtituloPagina mb-0">Diligencia todos los campos para registrar la incautación</p>
       </div>

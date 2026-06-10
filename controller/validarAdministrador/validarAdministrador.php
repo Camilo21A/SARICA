@@ -53,7 +53,7 @@ header('Location: ../../view/administrarHome/home.php?modal=confirmar&error=usua
 /* SHA2('contrasena', 256) en MySQL  ===  hash('sha256', $contrasena) en PHP */
 if (hash('sha256', $contrasena) === $funcionario['contrasena']) {
     /*  Rol y contraseña correctos: redirigir a página temporal */
-    header('Location: ../../view/gestionarFuncionarios/listFuncionarios.php');
+    header('Location: ../../view/gestionarFuncionarios/funcionarios.php');
     exit;
 } else {
     /*  Contraseña incorrecta */

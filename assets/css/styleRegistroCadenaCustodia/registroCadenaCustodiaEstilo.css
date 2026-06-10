@@ -66,6 +66,27 @@ body {
   font-size: 13px;
   font-weight: 600;
 }
+/* ── Botón volver al inicio ─────────────────────────────────────── */
+.botonSalir{
+  padding: 0 0 12px 0;
+}
+.btnVolverInicio {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1565C0;
+    text-decoration: none;
+    background-color: #dbeafe;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btnVolverInicio:hover {
+    background-color: #1565C0;
+    color: #fff;
+}
 
 /* Titulo de la sección */
 .tituloSeccion {

@@ -1,5 +1,7 @@
 <?php
 session_start();
+// Establecemos la zona horaria predeterminada para que no tome la del servidor. 
+date_default_timezone_set('America/Bogota');
 
 if (!isset($_SESSION['usuario_id'])) {
     header('Location: ../../view/administrarLogin/login.php');
